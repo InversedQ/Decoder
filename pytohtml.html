@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<style>
+h1 {text-align: center;}
+p {text-align: center;}
+div {text-align: center; }
+button {text-align: center;}
+
+</style>
+  <!-- <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" /> -->
+  <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+</head>
+
+<body  style="font-family:'Courier New';color:black;background-color:Grey;" align="center" height="100" width="500">
+<br><br><br>
+  <div style="font-size:80px">Enter Coded Message</div>
+  <input  style="font-size:80px" type="text" id="test-input"/>
+  <button   style="font-family:'Courier New';font-size:80px;background-color:DarkGrey;" id="submit-button" type="submit" pys-onClick="my_function">Translate</button>
+  <div  style="font-size:80px" id="myInput">Output : </div>
+
+
+<py-script>
+
+def my_function(*args, **kwargs):
+
+
+    text = Element('test-input').element.value
+
+    z='''@;'£3_&-8+()?!9014#57:2"6* '''
+    a="abcdefghijklmnopqrstuvwxyz "
+    y=[]
+    for i in text:
+            for k in z:
+                if k==i:
+                    bb=True
+                    y.append(a[z.index(k)])   
+            if bb==False:
+                y.append(i)
+            bb=False
+    
+    Element('myInput').element.innerText = "Output : "+(''.join(str(i) for i in y))
+</py-script>
+</body>
+
+
+<body>
+<p>                
+<br><br><br><br><br><br>
+
+</p>
+  <div style="font-size:80px">Enter Decoded Message</div>
+  <input  style="font-size:80px" type="text" id="test-i"/>
+  <button   style="font-family:'Courier New';font-size:80px;background-color:DarkGrey;" id="submit" type="submit" pys-onClick="wha_function">Translate</button>
+  <div  style="font-size:80px" id="output">Output : </div>
+
+<py-script>
+
+def wha_function(*args, **kwargs):
+
+
+    hmm = Element('test-i').element.value
+
+    a='''@;'£3_&-8+()?!9014#57:2"6* '''
+    z="abcdefghijklmnopqrstuvwxyz "
+    y=[]
+    bb=False
+    for i in hmm:
+            for k in z:
+                if k==i:
+                    bb=True
+                    y.append(a[z.index(k)])   
+            if bb==False:
+                y.append(i)
+            bb=False
+
+    
+    Element('output').element.innerText ="Output : "+ (''.join(str(i) for i in y))
+</py-script>
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 300px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -75px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+</style>
+</head>
+<body>
+
+
+
+
+
+
+<script>
+function myFunction() {
+  var copyText = document.getElementById("myInput");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value);
+  
+  var tooltip = document.getElementById("myTooltip");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc() {
+  var tooltip = document.getElementById("myTooltip");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+</script>
+</body>
+  </body>
+</html>
