@@ -29,8 +29,8 @@ def my_function(*args, **kwargs):
 
     text = Element('test-input').element.value
 
-    z='''@;'£3_&-8+()?!9014#57:2"6* '''
-    a="abcdefghijklmnopqrstuvwxyz "
+    z='''@;'£3_&-8+()?!9014#57:2"6* abcdefghijklmnopqrstuvwxyz'''
+    a='''abcdefghijklmnopqrstuvwxyz @;'£3_&-8+()?!9014#57:2"6*'''
     y=[]
     for i in text:
             for k in z:
@@ -63,8 +63,8 @@ def wha_function(*args, **kwargs):
 
     hmm = Element('test-i').element.value
 
-    a='''@;'£3_&-8+()?!9014#57:2"6* '''
-    z="abcdefghijklmnopqrstuvwxyz "
+    a='''@;'£3_&-8+()?!9014#57:2"6* abcdefghijklmnopqrstuvwxyz'''
+    z='''abcdefghijklmnopqrstuvwxyz @;'£3_&-8+()?!9014#57:2"6*'''
     y=[]
     bb=False
     for i in hmm:
@@ -80,71 +80,7 @@ def wha_function(*args, **kwargs):
     Element('output').element.innerText ="Output : "+ (''.join(str(i) for i in y))
 </py-script>
 
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-.tooltip {
-  position: relative;
-  display: inline-block;
-}
-
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 300px;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px;
-  position: absolute;
-  z-index: 1;
-  bottom: 150%;
-  left: 50%;
-  margin-left: -75px;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.tooltip .tooltiptext::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
-}
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
-}
-</style>
-</head>
 <body>
-
-
-
-
-
-
-<script>
-function myFunction() {
-  var copyText = document.getElementById("myInput");
-  copyText.select();
-  copyText.setSelectionRange(0, 99999);
-  navigator.clipboard.writeText(copyText.value);
-  
-  var tooltip = document.getElementById("myTooltip");
-  tooltip.innerHTML = "Copied: " + copyText.value;
-}
-
-function outFunc() {
-  var tooltip = document.getElementById("myTooltip");
-  tooltip.innerHTML = "Copy to clipboard";
-}
-</script>
 </body>
   </body>
 </html>
