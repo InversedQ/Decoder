@@ -1,25 +1,77 @@
 <!DOCTYPE html>
 
 <html>
-
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    .topnav {
+      overflow: hidden;
+      background-color: #333;
+    }
+    
+    .topnav a {
+      float: left;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+    
+    .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+    
+    .topnav a.active {
+      background-color: rgb(236, 163, 28);
+      color: white;
+    }
+    </style>
+    </head>
+    <body>
+    
+    <div class="topnav">
+      <a class="active" href="#home">    Home    </a>
+      <a href="./encryption.html">Encryption</a>
+      <a href="./contact.html">Contact</a>
+      <a href="./about.html">About</a>
+    </div>  
+    
+   
+    
+    </body>
 <head>
+<meta charset="utf-8">
 <style>
 h1 {text-align: center;}
 p {text-align: center;}
 div {text-align: center; }
 button {text-align: center;}
+@font-face {
+  font-family: 'Comfortaa';
+  src: url(Comfortaa/Comfortaa-VariableFont_wght.ttf);
+}
 
 </style>
   <!-- <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" /> -->
   <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
 </head>
 
-<body  style="font-family:'Courier New';color:black;background-color:Grey;" align="center" height="100" width="500">
+<body  style="font-family:'Comfortaa';color:rgb(255, 255, 255);background-color:rgb(39, 39, 44);" align="center" height="100" width="500">
 <br><br><br>
-  <div style="font-size:80px">Enter Coded Message</div>
-  <input  style="font-size:80px" type="text" id="test-input"/>
-  <button   style="font-family:'Courier New';font-size:80px;background-color:DarkGrey;" id="submit-button" type="submit" pys-onClick="my_function">Translate</button>
-  <div  style="font-size:80px" id="myInput">Output : </div>
+  <div style="font-size:80px;color:rgb(236, 163, 28)">< SEPIA Two Way Translator ></div>
+  <br><div style="font-size:60px;color:rgb(255, 255, 255)">System of Encryption Protocol for Interchange of Alphanumeric-symbols</div><br><br><br>
+  <input  style="font-size:80px;background-color:rgb(25, 24, 32);color:rgb(255, 255, 255)" type="text" id="test-input"/>
+  <button   style="font-family:'Comfortaa';font-size:80px;background-color:rgb(236, 163, 28);" id="submit-button" type="submit" pys-onClick="my_function">Convert</button>
+  <br><br><br>
+  <div  style="font-size:80px;color:rgb(250, 239, 239)" id="myInput">Translation : </div>
+  
 
 
 <py-script>
@@ -29,8 +81,8 @@ def my_function(*args, **kwargs):
 
     text = (Element('test-input').element.value).lower()
 
-    z='''@;'£3_&-8+()?!9014#57:2"6* abcdefghijklmnopqrstuvwxyz'''
-    a='''abcdefghijklmnopqrstuvwxyz @;'£3_&-8+()?!9014#57:2"6*'''
+    z='''@;'£3_&-8+()?!9014#57:2"6*abcdefghijklmnopqrstuvwxyz'''
+    a='''abcdefghijklmnopqrstuvwxyz@;'£3_&-8+()?!9014#57:2"6*'''
     y=[]
     for i in text:
             for k in z:
@@ -41,46 +93,9 @@ def my_function(*args, **kwargs):
                 y.append(i)
             bb=False
     
-    Element('myInput').element.innerText = "Output : "+(''.join(str(i) for i in y))
+    Element('myInput').element.innerText = "Translation : "+(''.join(str(i) for i in y))
 </py-script>
 </body>
 
 
-<body>
-<p>                
-<br><br><br><br><br><br>
-
-</p>
-  <div style="font-size:80px">Enter Decoded Message</div>
-  <input  style="font-size:80px" type="text" id="test-i"/>
-  <button   style="font-family:'Courier New';font-size:80px;background-color:DarkGrey;" id="submit" type="submit" pys-onClick="wha_function">Translate</button>
-  <div  style="font-size:80px" id="output">Output : </div>
-
-<py-script>
-
-def wha_function(*args, **kwargs):
-
-
-    hmm = (Element('test-i').element.value).lower()
-
-    a='''@;'£3_&-8+()?!9014#57:2"6* abcdefghijklmnopqrstuvwxyz'''
-    z='''abcdefghijklmnopqrstuvwxyz @;'£3_&-8+()?!9014#57:2"6*'''
-    y=[]
-    bb=False
-    for i in hmm:
-            for k in z:
-                if k==i:
-                    bb=True
-                    y.append(a[z.index(k)])   
-            if bb==False:
-                y.append(i)
-            bb=False
-
-    
-    Element('output').element.innerText ="Output : "+ (''.join(str(i) for i in y))
-</py-script>
-
-<body>
-</body>
-  </body>
 </html>
